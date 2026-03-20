@@ -179,8 +179,8 @@ While in **Repeater**:
 
 Request in browser → In current browser session
 
+![Repeater Request](images/repeater-browser-request.png)
 
-![Repeater Request in Browser]([images/repeater-browser-request.png](https://github.com/barajas-cyber/OWASPSecureHeaders/blob/main/%7B08E8DC1E-D883-4C48-8C65-236BCDB29362%7D.png))
 ---
 
 ##  Final result
