@@ -19,4 +19,4 @@ To develop and demonstrate practical manual exploitation skills for bug bounty p
 
 ## Current Labs
 
-- SSRF - Basic Backend System (PortSwigger)
+- [SSRF - Basic Backend System](portswigger-labs/ssrf-basic-backend-system.md)
