@@ -180,8 +180,7 @@ While in **Repeater**:
 Request in browser → In current browser session
 
 
-![[{487F6C16-9279-47D5-8A49-1C3E14E2B1C7}.png]]
-![[{08E8DC1E-D883-4C48-8C65-236BCDB29362}.png]]
+![Repeater Request in Browser](images/repeater-browser-request.png)
 ---
 
 ##  Final result
