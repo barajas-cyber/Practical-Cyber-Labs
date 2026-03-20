@@ -178,7 +178,7 @@ While in **Repeater**:
     
 
 Request in browser → In current browser session
-
+![Repeater Request](images/repeater-browser-session.png)
 ![Repeater Request](images/repeater-browser-request.png)
 
 ---
