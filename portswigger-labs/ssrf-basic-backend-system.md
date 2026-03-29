@@ -241,7 +241,7 @@ Server = internal
 
 ---
 
-#  Final takeaway (this is gold)
+#  Final takeaway 
 
 SSRF is not just about sending requests  
   
