@@ -1,3 +1,14 @@
+
+NOTE: Burp Suite includes a built-in browser (Chromium) that is pre-configured to trust Burp’s CA certificate and route traffic through the proxy.
+
+This allows HTTPS interception without manual certificate installation.
+
+When using external browsers like Firefox, the Burp CA certificate must be installed manually for proper HTTPS interception.
+
+
+
+
+
 Lab: Basic SSRF against another back-end system (Full Walkthrough Notes)
 
 ## Step 1 — Capture request using Proxy HTTP History
