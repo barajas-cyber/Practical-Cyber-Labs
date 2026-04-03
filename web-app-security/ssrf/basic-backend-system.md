@@ -189,8 +189,8 @@ While in **Repeater**:
     
 
 Request in browser → In current browser session
-![Repeater Request](images/repeater-browser-session.png)
-![Repeater Request](images/repeater-browser-request.png)
+<img width="722" height="311" alt="image" src="https://github.com/user-attachments/assets/ee575c8a-78ff-4613-93c7-50a235b7d23a" />
+
 
 ---
 
