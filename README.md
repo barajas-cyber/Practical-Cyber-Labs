@@ -20,3 +20,7 @@ To develop and demonstrate practical manual exploitation skills for bug bounty p
 ## Current Labs
 
 - [SSRF - Basic Backend System](portswigger-labs/ssrf-basic-backend-system.md)
+
+  ## Network Security
+
+- [Router Hardening and DNS Filtering](network-security/router-hardening-and-dns-filtering.md)
