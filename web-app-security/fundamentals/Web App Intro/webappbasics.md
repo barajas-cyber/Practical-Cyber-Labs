@@ -200,6 +200,158 @@ Web application security is not just about code.
 
 
 
+
+# Front End vs Back End
+
+## Overview
+
+Web applications are divided into two main parts:
+
+- Front End (Client-side)
+- Back End (Server-side)
+
+Understanding the difference is critical for identifying where vulnerabilities exist.
+
+---
+
+## Front End (Client-Side)
+
+The front end is everything the user sees and interacts with in the browser.
+
+### Technologies:
+- HTML → structure
+- CSS → design
+- JavaScript → functionality
+
+### Responsibilities:
+- Display UI (text, buttons, forms)
+- Handle user interaction
+- Send requests to the server
+
+### Key Idea:
+> The front end runs in the browser and is fully visible to the attacker.
+
+---
+
+## Back End (Server-Side)
+
+The back end handles all core functionality and runs on the server.
+
+### Main Components:
+
+#### 1. Back End Server
+- Hosts the application
+- OS (Linux, Windows)
+
+#### 2. Web Server
+- Handles HTTP requests
+- Examples: Apache, NGINX, IIS
+
+#### 3. Database
+- Stores application data
+- Examples: MySQL, PostgreSQL, MongoDB
+
+#### 4. Frameworks
+- Used to build applications
+- Examples:
+  - Laravel (PHP)
+  - Django (Python)
+  - Express (Node.js)
+
+---
+
+## Back End Responsibilities
+
+- Process user requests
+- Execute business logic
+- Handle authentication
+- Store/retrieve data
+- Communicate with APIs
+
+---
+
+## Key Difference
+
+| Front End | Back End |
+|----------|--------|
+| Visible to user | Hidden from user |
+| Runs in browser | Runs on server |
+| Handles UI | Handles logic + data |
+
+---
+
+## Security Implications
+
+Even though the back end is not visible:
+> It is still vulnerable to attacks.
+
+### Example Attacks:
+- SQL Injection → manipulate database queries
+- Command Injection → execute OS commands
+- File Inclusion → read server files
+
+---
+
+## Attacker Perspective
+
+- You can see and modify front-end behavior
+- You cannot see back-end code directly
+- You attack the back end through requests
+
+---
+
+## Whitebox vs Blackbox Testing
+
+### Whitebox Pentesting
+- Full access to source code
+- Can review logic directly
+
+### Blackbox Pentesting
+- No access to source code
+- Test by interacting with the application
+
+> Most bug bounty = Blackbox testing
+
+---
+
+## Common Developer Mistakes
+
+- Trusting user input
+- Storing passwords in plain text
+- Weak authentication
+- Not validating input
+- Relying too much on client-side validation
+- Using outdated components
+
+---
+
+## OWASP Top 10 (Important)
+
+These are the most common web vulnerabilities:
+
+1. Broken Access Control
+2. Cryptographic Failures
+3. Injection (SQL, Command)
+4. Insecure Design
+5. Security Misconfiguration
+6. Vulnerable Components
+7. Authentication Failures
+8. Data Integrity Issues
+9. Logging Failures
+10. SSRF (Server-Side Request Forgery)
+
+---
+
+## Key Takeaway
+
+- Front end = what you see  
+- Back end = what you attack  
+
+> Most vulnerabilities exist because the server trusts user input too much.
+
+
+
+
 # Real-World Web Application Attacks
 
 ## SQL Injection (SQLi)
