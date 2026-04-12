@@ -51,8 +51,8 @@
 POST request:
 username=bjones&password=Welcome1&roleid=3
 
-👉 Modify:
-roleid=0 → become admin
+Modify role ID to 0 or 1:
+roleid=0 or 1 → become admin
 
 ### Real-World Impact
 - Privilege escalation
@@ -60,10 +60,10 @@ roleid=0 → become admin
 
 ---
 
-## Key Attacker Mindset (IMPORTANT)
+## Attacker Mindset (IMPORTANT)
 
 Attackers ask:
-👉 "What happens if I change this value?"
+"What happens if I change this value?"
 
 - Change IDs
 - Change roles
