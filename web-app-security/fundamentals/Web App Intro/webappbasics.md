@@ -1,3 +1,205 @@
+# Web Application Layout & Architecture
+
+## Overview
+
+Web applications are complex systems made up of multiple components, layers, and infrastructure models. Understanding how these pieces interact is critical for identifying vulnerabilities during penetration testing.
+
+---
+
+## Core Concepts
+
+### 1. Infrastructure
+Defines where components live:
+- Servers
+- Databases
+- Hosting environment
+
+---
+
+### 2. Components
+Defines what interacts:
+- Client (browser)
+- Server (backend)
+- APIs / services
+
+---
+
+### 3. Architecture
+Defines how everything connects:
+- Communication between components
+- Data flow
+- Trust relationships
+
+---
+
+## Infrastructure Models
+
+### Client-Server Model
+- Client (browser) sends HTTP requests
+- Server processes and responds
+
+**Key Idea:**
+> The attacker controls the client and manipulates requests.
+
+---
+
+### One Server (High Risk)
+- Web app + database + logic all on one server
+
+**Risks:**
+- Single vulnerability → full system compromise
+- Downtime affects everything
+
+---
+
+### Many Servers – One Database
+- Multiple app servers connected to one database
+
+**Benefits:**
+- Partial segmentation
+- Limits impact of compromise
+
+---
+
+### Many Servers – Many Databases
+- Each application has its own database
+
+**Benefits:**
+- Strong isolation
+- Better security and redundancy
+
+---
+
+## Web Application Components
+
+### Client
+- Browser (Chrome, Firefox)
+- Executes JavaScript
+- Sends HTTP requests
+
+---
+
+### Server
+- Web server (Apache, Nginx)
+- Application logic
+- Database
+
+---
+
+### Services / APIs
+- Microservices
+- External integrations
+
+---
+
+### Serverless Functions
+- Cloud-based execution (AWS Lambda, Azure Functions)
+
+---
+
+## Three-Tier Architecture
+
+### 1. Presentation Layer
+- UI (HTML, CSS, JavaScript)
+
+**Common Attacks:**
+- Cross-Site Scripting (XSS)
+
+---
+
+### 2. Application Layer
+- Business logic
+- Authentication & authorization
+
+**Common Attacks:**
+- Broken access control
+- Logic flaws
+
+---
+
+### 3. Data Layer
+- Database storage
+
+**Common Attacks:**
+- SQL Injection
+- Data exposure
+
+---
+
+## Microservices
+
+- Small independent services (e.g., login, payments)
+- Communicate via APIs
+- Stateless communication
+
+**Benefits:**
+- Scalability
+- Flexibility
+- Faster development
+
+**Security Risks:**
+- Exposed internal APIs
+- Weak authentication between services
+- Increased attack surface
+
+---
+
+## Serverless Architecture
+
+- No traditional server management
+- Runs on cloud platforms (AWS, Azure, GCP)
+
+**Benefits:**
+- Easy deployment
+- Scalable
+
+**Security Risks:**
+- Misconfigured permissions (IAM)
+- Exposed endpoints
+- Poor access control
+
+---
+
+## Architecture Security
+
+Not all vulnerabilities come from code:
+> Many vulnerabilities are caused by poor design decisions.
+
+---
+
+### Example: Broken Access Control
+- Users access admin functionality without permission
+
+---
+
+### Example: Poor Segmentation
+- Compromising one component leads to full system access
+
+---
+
+## Attacker Mindset
+
+When testing a web application, ask:
+
+- Where is the database located?
+- Is the application segmented?
+- Are APIs exposed?
+- Can I move between components?
+- What does the server trust?
+
+---
+
+## Key Takeaway
+
+Web application security is not just about code.
+
+> Most real-world vulnerabilities come from:
+- Poor architecture
+- Weak trust boundaries
+- Improper access control
+
+
+
 # Real-World Web Application Attacks
 
 ## SQL Injection (SQLi)
