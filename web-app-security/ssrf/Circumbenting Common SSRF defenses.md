@@ -1,6 +1,6 @@
-# 🔐 SSRF Defense Bypass Techniques (Circumventing SSRF Protections)  - notes for ssrf with blacklist-based input filters 
+#  SSRF Defense Bypass Techniques (Circumventing SSRF Protections)  - notes for ssrf with blacklist-based input filters 
 
-## 📌 Overview
+## Overview
 
 Applications often implement defenses to prevent **Server-Side Request Forgery (SSRF)** by restricting which URLs a server can request. However, these defenses are frequently **incomplete or improperly implemented**, allowing attackers to **circumvent (bypass)** them.
 
@@ -14,11 +14,11 @@ These approaches can often be bypassed due to **inconsistent URL parsing, weak v
 
 ---
 
-## 🔥 Common SSRF Bypass Techniques
+## Common SSRF Bypass Techniques
 
 ---
 
-## 🔹 1. Alternative IP Address Representations
+##  1. Alternative IP Address Representations
 
 Many filters block:
 
@@ -37,11 +37,11 @@ However, attackers can represent the same IP in alternative formats:
 127.1           → shorthand
 ```
 
-👉 These resolve to the same loopback address but may bypass string-based filters.
+These resolve to the same loopback address but may bypass string-based filters.
 
 ---
 
-## 🔹 2. Domain Name Resolution (DNS Rebinding / Controlled Domains)
+##  2. Domain Name Resolution (DNS Rebinding / Controlled Domains)
 
 Instead of directly using a blocked IP:
 
@@ -61,17 +61,17 @@ Where:
 attacker-controlled-domain.com → 127.0.0.1
 ```
 
-### 🧪 In PortSwigger Labs:
+### In PortSwigger Labs:
 
 ```text
 spoofed.burpcollaborator.net → 127.0.0.1
 ```
 
-👉 This bypasses filters that only check for literal IP strings.
+This bypasses filters that only check for literal IP strings.
 
 ---
 
-## 🔹 3. URL Encoding and Obfuscation
+##  3. URL Encoding and Obfuscation
 
 Filters may fail to normalize input before validation.
 
@@ -92,7 +92,7 @@ hTTp://127.0.0.1
 
 ---
 
-## 🔹 4. Open Redirect Exploitation
+##  4. Open Redirect Exploitation
 
 If a server allows requests to trusted domains:
 
@@ -106,11 +106,11 @@ An attacker can use an open redirect:
 http://trusted.com/redirect?url=http://127.0.0.1/admin
 ```
 
-👉 The application validates `trusted.com`, but the request is redirected to an internal resource.
+The application validates `trusted.com`, but the request is redirected to an internal resource.
 
 ---
 
-## 🔹 5. Protocol Switching
+##  5. Protocol Switching
 
 Applications may restrict certain protocols:
 
@@ -127,11 +127,11 @@ gopher://
 file://
 ```
 
-👉 Some back-end systems support additional protocols that can be abused.
+Some back-end systems support additional protocols that can be abused.
 
 ---
 
-## 🔹 6. Redirect Handling Variations
+## 6. Redirect Handling Variations
 
 Different HTTP redirect codes behave differently:
 
@@ -141,11 +141,10 @@ Different HTTP redirect codes behave differently:
 307/308 → preserve HTTP method
 ```
 
-👉 Some applications validate the initial request but fail to validate redirected destinations.
-
+Some applications validate the initial request but fail to validate redirected destinations.
 ---
 
-## 🧠 Root Cause of These Bypasses
+## Root Cause of These Bypasses
 
 Most SSRF bypasses exploit:
 
@@ -158,7 +157,7 @@ Most SSRF bypasses exploit:
 
 ---
 
-## 🔥 Key Takeaway
+## Key Takeaway
 
 ```text
 SSRF defenses often fail because they validate how a URL LOOKS, not where it actually RESOLVES.
@@ -166,35 +165,35 @@ SSRF defenses often fail because they validate how a URL LOOKS, not where it act
 
 ---
 
-## 📚 References (Legitimate Sources)
+## References (Legitimate Sources)
 
-### 🔗 OWASP SSRF Overview
+### OWASP SSRF Overview
 
 https://owasp.org/www-community/attacks/Server_Side_Request_Forgery
 
-### 🔗 OWASP Top 10 (SSRF – A10:2021)
+### OWASP Top 10 (SSRF – A10:2021)
 
 https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_(SSRF)/
 
-### 🔗 PortSwigger SSRF Documentation
+### PortSwigger SSRF Documentation
 
 https://portswigger.net/web-security/ssrf
 
-### 🔗 PortSwigger SSRF Bypass Techniques
+### PortSwigger SSRF Bypass Techniques
 
 https://portswigger.net/web-security/ssrf#bypassing-common-ssrf-defenses
 
-### 🔗 RFC 3986 (URL Parsing Standard)
+### RFC 3986 (URL Parsing Standard)
 
 https://datatracker.ietf.org/doc/html/rfc3986
 
-### 🔗 DNS Rebinding Explanation (OWASP)
+### DNS Rebinding Explanation (OWASP)
 
 https://owasp.org/www-community/attacks/DNS_Rebinding
 
 ---
 
-## 🧠 Final Insight
+## Final Insight
 
 ```text
 Effective SSRF defense requires validating BOTH:
