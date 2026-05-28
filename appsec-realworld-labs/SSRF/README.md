@@ -1,14 +1,14 @@
 
 
-# 🌐 SSRF (Server-Side Request Forgery)
+#  SSRF (Server-Side Request Forgery)
 
-## 🔍 What is SSRF?
+##  What is SSRF?
 
 SSRF allows an attacker to make requests from the server to internal or external systems.
 
 ---
 
-## 💥 Why it matters
+##  Why it matters
 
 - Access internal APIs
 - Reach localhost services
@@ -17,7 +17,7 @@ SSRF allows an attacker to make requests from the server to internal or external
 
 ---
 
-## 🧠 Real-World Scenario
+##  Real-World Scenario
 
 An attacker exploits a vulnerable URL parameter to make the server send requests to:
 
@@ -27,7 +27,7 @@ This allows extraction of cloud credentials.
 
 ---
 
-## 🛠 Mitigation Strategies
+##  Mitigation Strategies
 
 - Block internal IP ranges
 - Use allowlists for outbound requests
@@ -36,7 +36,7 @@ This allows extraction of cloud credentials.
 
 ---
 
-## 📂 Labs
+##  Labs
 
 - Basic SSRF
 - SSRF to internal services
