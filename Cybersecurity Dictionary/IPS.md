@@ -4,8 +4,6 @@
 
 **Difficulty:** Beginner
 
-**Interview Priority:** ⭐⭐⭐⭐⭐
-
 **Last Updated:** July 2026
 
 ---
