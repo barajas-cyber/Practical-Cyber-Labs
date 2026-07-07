@@ -1,51 +1,24 @@
 # Intrusion Detection System (IDS)
 
-## Definition
-
-An **Intrusion Detection System (IDS)** is a security technology that continuously monitors network traffic, system activity, or host events for malicious or suspicious behavior. An IDS analyzes data using signatures, behavioral analysis, or anomaly detection techniques and generates alerts when potential threats are identified.
-
-Unlike an Intrusion Prevention System (IPS), an IDS **does not actively block or prevent traffic**. Instead, it provides visibility into potential security incidents so they can be investigated by security personnel.
+> Monitors network or host activity for malicious or suspicious behavior and generates alerts. An IDS is a passive security control because it does not block traffic.
 
 ---
 
-## Primary Purpose
+## Key Points
 
-- Detect malicious activity
-- Monitor network traffic and host events
-- Generate security alerts
-- Improve visibility into security events
-- Support incident response and threat hunting
-- Assist with forensic investigations
-
----
-
-## Common Use Cases
-
-- Detecting port scans
-- Detecting brute-force attacks
-- Detecting malware communications
-- Detecting command-and-control (C2) traffic
-- Detecting lateral movement
-- Detecting exploit attempts
-- Monitoring critical servers and network segments
+- Passive monitoring
+- Detects suspicious activity
+- Generates alerts
+- Supports incident response
+- Does not block traffic
 
 ---
 
-## How It Works
+## Types
 
-An IDS analyzes network packets or host activity and compares the observed behavior against known attack signatures or behavioral baselines.
+### Network IDS (NIDS)
 
-When suspicious activity is detected, the IDS generates an alert that can be investigated by security analysts.
-
-Unlike an IPS, the IDS **does not modify or block network traffic**.
-
----
-
-## Types of IDS
-
-### Network Intrusion Detection System (NIDS)
-
-Monitors network traffic for malicious activity.
+Monitors network traffic.
 
 Examples:
 
@@ -53,158 +26,47 @@ Examples:
 - Snort
 - Zeek
 
----
+### Host IDS (HIDS)
 
-### Host Intrusion Detection System (HIDS)
-
-Monitors activity occurring on an individual endpoint or server.
+Monitors activity on an endpoint.
 
 Examples:
 
 - Wazuh
 - OSSEC
-- Microsoft Defender for Endpoint (Host-based monitoring capabilities)
-
----
-
-## Detection Methods
-
-### Signature-Based Detection
-
-Compares observed activity against known attack signatures.
-
-Advantages:
-
-- Accurate
-- Low false positive rate
-
-Limitations:
-
-- Cannot detect unknown attacks
-- Requires frequent signature updates
-
----
-
-### Anomaly-Based Detection
-
-Identifies activity that deviates from established normal behavior.
-
-Advantages:
-
-- Can detect previously unknown attacks
-
-Limitations:
-
-- Higher false positive rate
-- Requires tuning
 
 ---
 
 ## Real-World Example
 
-An attacker performs an Nmap scan against an organization's web server.
+An attacker performs an Nmap scan.
 
-The IDS detects multiple connection attempts across numerous ports and generates an alert indicating a potential reconnaissance or port scanning activity.
+The IDS detects the scan and generates an alert.
 
-The security team investigates the alert while the traffic continues because the IDS operates as a passive monitoring solution.
-
----
-
-## Advantages
-
-- Provides visibility into network activity
-- Detects suspicious behavior
-- Supports threat hunting
-- Supports incident response
-- Does not interfere with legitimate traffic
-- Can monitor large network environments
+The SOC investigates the activity.
 
 ---
 
-## Limitations
-
-- Does not block attacks
-- Requires continuous monitoring
-- May generate false positives
-- Requires tuning to reduce alert fatigue
-
----
-
-## Common Technologies
-
-Open Source
-
-- Suricata
-- Snort
-- Zeek
-- Security Onion
-
-Commercial
-
-- Palo Alto Networks
-- Cisco Secure IDS/IPS
-- Trend Micro Deep Discovery
-- Trellix Network Security
-
----
-
-## Related Concepts
-
-- IPS (Intrusion Prevention System)
-- SIEM (Security Information and Event Management)
-- Threat Hunting
-- Network Security Monitoring (NSM)
-- Packet Analysis
-- Incident Response
-- MITRE ATT&CK
-
----
-
-## Interview Notes
-
-### What is an IDS?
-
-> An Intrusion Detection System is a passive security technology that monitors network traffic or host activity for malicious behavior and generates alerts when suspicious activity is detected. Unlike an IPS, an IDS provides visibility into potential attacks but does not block traffic.
-
----
-
-### IDS vs IPS
+## IDS vs IPS
 
 | IDS | IPS |
-|------|-----|
-| Detects threats | Detects and blocks threats |
-| Passive | Active (Inline) |
-| Generates alerts | Generates alerts and prevents attacks |
-| Does not modify traffic | Can block or drop malicious traffic |
+|-----|-----|
+| Detects | Detects & Blocks |
+| Passive | Active |
+| Alerts | Prevents |
+| Out-of-band | Inline |
 
 ---
 
-## Official References
+## Interview Answer
 
-### NIST
-
-https://csrc.nist.gov
-
-### Cisco
-
-https://www.cisco.com/c/en/us/products/security/index.html
-
-### Suricata Documentation
-
-https://docs.suricata.io
-
-### Snort Documentation
-
-https://docs.snort.org
-
-### MITRE ATT&CK
-
-https://attack.mitre.org
+> "An IDS is a passive monitoring solution that detects suspicious activity and generates alerts but does not block traffic."
 
 ---
 
-## Personal Notes
+## References
 
-An IDS is often deployed using a **SPAN (mirror) port** or a **network TAP**, allowing it to inspect copies of network traffic without interrupting communications.
-
-A modern Security Operations Center (SOC) commonly integrates IDS alerts into a SIEM for centralized monitoring and investigation.
+- NIST
+- Suricata
+- Snort
+- MITRE ATT&CK
