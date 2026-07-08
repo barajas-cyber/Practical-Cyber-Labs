@@ -459,6 +459,4 @@ What do I still need to research?
 
 How would I improve our security posture?
 
-#Reference Location
-DFIR
-https://thedfirreport.com/company/about-us/?utm_source=chatgpt.com
+
