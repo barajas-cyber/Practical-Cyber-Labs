@@ -1,192 +1,288 @@
-# Virtual Private Network (VPN)
+# Web Application Firewall (WAF)
 
 **Category:** Network Security
-
-**Difficulty:** Beginner
 
 **Last Updated:** July 2026
 
 ---
 
-## Definition
+# Definition
 
-A **Virtual Private Network (VPN)** is a security technology that creates an encrypted tunnel between a user's device and a trusted network over an untrusted network, such as the Internet. This encrypted connection protects the confidentiality and integrity of data while allowing authorized users to securely access internal resources.
+A **Web Application Firewall (WAF)** is a security solution that monitors, filters, and blocks malicious HTTP and HTTPS traffic between clients and web applications. Unlike traditional firewalls, which primarily protect networks, a WAF is designed to protect web applications from attacks targeting the application layer (Layer 7 of the OSI model).
 
----
-
-## Primary Purpose
-
-- Secure remote access
-- Encrypt network communications
-- Protect sensitive data in transit
-- Connect remote offices
-- Reduce exposure on public networks
-- Support secure work-from-home environments
+A WAF helps defend against common web application attacks such as SQL Injection (SQLi), Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), file inclusion attacks, and other threats identified by the OWASP Top 10.
 
 ---
 
-## Common Use Cases
+# Primary Purpose
 
-- Remote employees accessing corporate resources
-- Secure access to internal file servers
-- Connecting branch offices together
-- Protecting traffic on public Wi-Fi
-- Secure administration of servers
-
----
-
-## How It Works
-
-A VPN establishes an encrypted tunnel between a VPN client and a VPN server.
-
-All network traffic sent through the VPN is encrypted before leaving the user's device and decrypted once it reaches the destination network.
-
-This prevents attackers from viewing or modifying data while it travels across the Internet.
+- Protect web applications from attacks
+- Inspect HTTP and HTTPS traffic
+- Block malicious requests before they reach the application
+- Reduce the attack surface
+- Improve application security
+- Support regulatory compliance (PCI DSS, HIPAA, etc.)
 
 ---
 
-## Types of VPN
+# How It Works
 
-### Remote Access VPN
+A WAF sits between the client and the web application, inspecting every HTTP and HTTPS request before it reaches the web server.
 
-Allows individual users to securely connect to an organization's internal network.
+When a request is received, the WAF evaluates:
 
-**Examples**
+- HTTP Headers
+- URLs
+- Cookies
+- Query Parameters
+- Request Body
+- File Uploads
+- HTTP Methods
+- User Behavior
 
-- Employees working from home
-- IT administrators managing servers remotely
+If malicious activity is detected, the WAF can:
 
----
-
-### Site-to-Site VPN
-
-Connects two or more networks together over the Internet.
-
-**Examples**
-
-- Headquarters connected to a branch office
-- Corporate office connected to a cloud environment
-
----
-
-## VPN Protocols
-
-### IPsec
-
-Provides encryption and authentication at the network layer.
-
-Commonly used for:
-
-- Site-to-site VPNs
-- Enterprise remote access
+1. Block the request.
+2. Log the event.
+3. Generate an alert.
+4. Rate-limit requests.
+5. Challenge the client (CAPTCHA).
+6. Redirect or deny access.
 
 ---
 
-### SSL/TLS VPN
+# Types of WAF
 
-Uses web technologies to establish secure remote connections.
+## Network-Based WAF
 
-Commonly used for:
+Installed as a hardware appliance within the organization's network.
 
-- Remote workforce
-- Browser-based VPN access
+### Advantages
 
----
+- High performance
+- Low latency
+- Full control
 
-### WireGuard
+### Limitations
 
-A modern VPN protocol designed for simplicity, high performance, and strong cryptography.
-
----
-
-### OpenVPN
-
-An open-source VPN solution widely used in enterprise and commercial environments.
+- Expensive
+- Requires on-premises infrastructure
 
 ---
 
-## Real-World Example
+## Host-Based WAF
 
-An employee working from home needs access to internal file shares and Active Directory resources.
+Runs directly on the web server or application.
 
-The employee launches the company's VPN client, authenticates with Multi-Factor Authentication (MFA), and establishes an encrypted tunnel to the corporate firewall. Once connected, the employee can securely access internal resources as if they were physically in the office.
+### Advantages
 
----
+- Highly customizable
+- Deep integration with the application
 
-## Advantages
+### Limitations
 
-- Encrypts data in transit
-- Enables secure remote work
-- Protects users on public Wi-Fi
-- Supports secure administration
-- Protects sensitive communications
+- Consumes server resources
+- More administrative overhead
 
 ---
 
-## Limitations
+## Cloud-Based WAF
 
-- Can introduce additional latency
-- Requires proper authentication
-- Misconfigurations may expose internal resources
-- Performance depends on Internet connectivity
+Delivered as a cloud service.
 
----
+### Advantages
 
-## Common Technologies
+- Easy deployment
+- Automatic updates
+- Scalable
+- Lower maintenance
 
-- Cisco AnyConnect
-- Palo Alto GlobalProtect
-- Fortinet FortiClient
-- OpenVPN
-- WireGuard
-- Microsoft Always On VPN
+### Limitations
+
+- Less customization
+- Dependent on the service provider
 
 ---
 
-## Related Concepts
+# Common Attacks a WAF Can Mitigate
+
+- SQL Injection (SQLi)
+- Cross-Site Scripting (XSS)
+- Local File Inclusion (LFI)
+- Remote File Inclusion (RFI)
+- Command Injection
+- Directory Traversal
+- HTTP Protocol Violations
+- Malicious Bots
+- API Abuse
+- Some Cross-Site Request Forgery (CSRF) attacks
+
+---
+
+# Common Use Cases
+
+- Public websites
+- Customer portals
+- Online banking
+- E-commerce websites
+- Healthcare applications
+- Government portals
+- APIs
+- Login pages
+
+---
+
+# Real-World Example
+
+A company hosts an online customer portal.
+
+An attacker attempts a SQL Injection attack using the following payload:
+
+```sql
+' OR 1=1 --
+```
+
+The WAF inspects the incoming HTTP request, recognizes the SQL Injection signature, blocks the request, logs the event, and generates an alert for the Security Operations Center (SOC).
+
+The malicious request never reaches the web application or database.
+
+---
+
+# Advantages
+
+- Protects web applications
+- Blocks common web attacks
+- Improves visibility into web traffic
+- Helps meet compliance requirements
+- Can provide virtual patching
+- Reduces application risk
+
+---
+
+# Limitations
+
+- Cannot replace secure coding practices
+- Requires tuning
+- May generate false positives
+- Cannot prevent every attack
+- Limited protection against business logic flaws
+
+---
+
+# Common Technologies
+
+## Commercial
+
+- Cloudflare WAF
+- AWS WAF
+- Microsoft Azure Web Application Firewall
+- F5 Advanced WAF
+- Imperva WAF
+- Akamai App & API Protector
+
+## Open Source
+
+- ModSecurity
+- NAXSI
+
+---
+
+# Related Concepts
 
 - Firewall
-- MFA
-- Zero Trust
-- Network Security
-- Encryption
-- Remote Access
+- Next-Generation Firewall (NGFW)
+- Intrusion Prevention System (IPS)
+- Reverse Proxy
+- Secure SDLC
+- API Security
+- OWASP Top 10
 
 ---
 
-## Interview Notes
+# Firewall vs WAF
 
-### What is a VPN?
-
-> A Virtual Private Network (VPN) creates an encrypted tunnel between a client and a trusted network, allowing users to securely access internal resources over untrusted networks such as the Internet.
+| Traditional Firewall | Web Application Firewall |
+|----------------------|--------------------------|
+| Protects networks | Protects web applications |
+| Operates primarily at Layers 3 & 4 | Operates at Layer 7 |
+| Filters IP addresses, ports, and protocols | Filters HTTP and HTTPS requests |
+| Protects servers and networks | Protects websites and APIs |
 
 ---
 
-## Official Resources
+# WAF vs NGFW
 
-### NIST
+| WAF | NGFW |
+|-----|------|
+| Protects web applications | Protects the entire network |
+| Inspects HTTP/HTTPS traffic | Inspects all network traffic |
+| Focuses on Layer 7 attacks | Protects Layers 3–7 |
+| Defends against OWASP Top 10 | Includes IPS, application awareness, malware detection, VPN, and more |
+
+---
+
+# Interview Notes
+
+## What is a WAF?
+
+> A Web Application Firewall (WAF) is a security solution that protects web applications by inspecting HTTP and HTTPS traffic for malicious requests. It helps prevent attacks such as SQL Injection, Cross-Site Scripting (XSS), and other OWASP Top 10 vulnerabilities before they reach the application.
+
+---
+
+## Official References
+
+### OWASP
+
+https://owasp.org/www-community/Web_Application_Firewall
+
+---
+
+### OWASP Top 10
+
+https://owasp.org/www-project-top-ten/
+
+---
+
+### National Institute of Standards and Technology (NIST)
 
 https://csrc.nist.gov
 
-### NIST SP 800-77 Revision 1
-Guide to IPsec VPNs
+---
 
-https://csrc.nist.gov/publications/detail/sp/800-77/rev-1/final
+### Cybersecurity and Infrastructure Security Agency (CISA)
 
-### Cisco VPN Technologies
+https://www.cisa.gov
 
-https://www.cisco.com/c/en/us/products/security/vpn-endpoint-security-clients/index.html
+---
 
-### OpenVPN
+### AWS WAF Documentation
 
-https://openvpn.net
+https://docs.aws.amazon.com/waf/
 
-### WireGuard
+---
 
-https://www.wireguard.com
+### Microsoft Azure Web Application Firewall
+
+https://learn.microsoft.com/azure/web-application-firewall/
+
+---
+
+### Cloudflare WAF
+
+https://developers.cloudflare.com/waf/
+
+---
+
+### ModSecurity
+
+https://modsecurity.org
 
 ---
 
 ## Personal Notes
 
-VPNs are commonly used to provide secure remote access for employees and administrators. Most enterprise VPN deployments integrate with Active Directory or Entra ID and require Multi-Factor Authentication (MFA) before allowing access to internal resources.
+A WAF is specifically designed to protect web applications—not entire networks. It should be considered an additional layer of security that complements secure software development practices.
+
+Organizations commonly deploy WAFs in front of public-facing web applications and APIs to inspect HTTP/HTTPS traffic, block common web attacks, and provide visibility into attempted exploitation.
+
+A WAF is most effective when used alongside secure coding practices, vulnerability management, regular penetration testing, and continuous monitoring through SIEM and XDR platforms.
